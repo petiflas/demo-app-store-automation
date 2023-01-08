@@ -53,8 +53,8 @@ hdiutil detach Util/S2D
 echo "Uploading the app"
 if [ "${APPLE_TEAM_ID}" ]
 then
-    xcrun iTMSTransporter -m upload -assetFile Util/*.ipa  -u "${APPLE_USERNAME}" -p "${APPLE_PASSWORD}" -asc_provider "${APPLE_TEAM_ID}"
+    xcrun altool --type ios --upload-app --file Util/*.ipa --username "${APPLE_USERNAME}" --password "${APPLE_PASSWORD}" --asc-provider "${APPLE_TEAM_ID}"
 else
-    xcrun iTMSTransporter -m upload -assetFile Util/*.ipa  -u "${APPLE_USERNAME}" -p "${APPLE_PASSWORD}"
+    xcrun altool --type ios --upload-app --file Util/*.ipa --username "${APPLE_USERNAME}" --password "${APPLE_PASSWORD}"
 fi
 )
